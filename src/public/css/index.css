@@ -1,0 +1,170 @@
+.header__alert--success {
+    padding: 10px 30px;
+    border-color: #ffffff;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.header__alert--danger {
+    padding: 10px 0;
+    border-color: #f5c2c7;
+    background-color: #f8d7da;
+    color: #842029;
+}
+
+.header__alert--danger ul {
+    margin: 0;
+}
+
+.header__content {
+    margin: 0 auto;
+    padding: 60px 15px;
+    max-width: 1230px;
+}
+
+.practice__btn {
+    width: Hug (137px);
+    Height: Hug (50px);
+    Radius: 5px;
+    Padding: 13px 20px 13px 20px
+    background  #FFA929;
+    text-align: right;
+    margin: 100px auto 0;
+}
+
+.create-form {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+}
+
+.create-form__item {
+    width: 70%;
+}
+
+.create-form__item-input {
+    padding: 10px;
+    width: Fixed (240px);
+    height: Hug (50px);
+    Gap: 10px;
+    border: 1px solid #E0DFDE;
+    border-radius: 30px;
+}
+
+.create-form__button {
+    width: Hug (240px);
+    Height: Hug (70px);
+}
+
+.create-form__button-submit {
+    padding: 10px;
+    width: Fixed (240px);
+    height: Hug (44px);
+    Gap: 10px;
+    border: none;
+    border-radius: 3px;
+    background:  #F5C800;
+    color: #4B4B4B;;
+    cursor: pointer;
+}
+
+.form-table {
+    margin: 30px auto;
+    width: 70%;
+    text-align: left;
+}
+
+.form-table__inner {
+    width: 100%;
+}
+
+.form-table__row {
+    border-bottom: 1px solid #ddd;
+}
+
+.form-table__header {
+    padding: 12px;
+    width: 20%;
+    text-align: left;
+    font-weight: bold;
+}
+
+.form-table__item:first-of-type {
+    padding: 12px;
+    width: 90%;
+}
+
+.update-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.update-form__item {
+    width: 80%;
+    line-height: 50%;
+}
+
+.update-form__item-input {
+    width: 100%;
+    outline: none;
+    border: none;
+}
+
+.update-form__button {
+    width: 50px;
+}
+
+.update-form__button-submit {
+    padding: 5px;
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+    background: #0000ff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.delete-form__button {
+    width: 50px;
+}
+
+.delete-form__button-submit {
+    padding: 5px;
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+    background: #ffffff;
+    color: #000000;
+    cursor: pointer;
+}
+.card {
+    width: Hug (374px);
+    Height: Hug (350px);
+    box-shadow: 0px 3px 10px rgba(0, 0, 10, 0);
+
+}
+.flex__item{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+}
+.practice__card {
+    width: 30%;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+.card__img img {
+    width: 100%;
+}
+.card__content {
+    padding: 15px 25px;
+}
+
+.card__content-ttl {
+    font-size: 18px;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
