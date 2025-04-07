@@ -12,6 +12,7 @@ class Contact extends Model
         'name',
         'price',
         'image',
+        'season',
         'description',
     ];
 }

@@ -21,6 +21,6 @@ class productsController extends Controller
     {
         $content = $request->only(['name', 'price', 'image', 'season', 'description']);
         Contact::create($content);
-        return;
+        return view('confirm');
     }
 }

@@ -19,7 +19,7 @@ class CreateContactsTable extends Migration
             $table->string('price');
             $table->string('image');
             $table->string('season');
-            $table->text('description')();
+            $table->text('description');
             $table->timestamps();
         });
     }
