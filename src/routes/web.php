@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\productsController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,9 @@ use App\Http\Controllers\productsController;
 |
 */
 
-Route::get('/', [productsController::class, 'index']);
-Route::post('/products/confirm', [productsController::class, 'confirm']);
-Route::post('/products', [productsController::class, 'store']);
+Route::get('/', [ProductController::class, 'index']);
+Route::post('/Product/confirm', [ProductController::class, 'confirm']);
+Route::post('/Product', [ProductController::class, 'store']);
+Route::get('/', [IndexController::class, 'index'])->name('home');
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.detail');
+Route::get('/Product/{id}', [ProductController::class, 'show'])->name('Product.show');

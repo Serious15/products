@@ -37,176 +37,48 @@
                 </div>
                 <h4>価格順で表示</h4>
 
-                <form action="detail.html" method="get">
-                    <select name="select">
-                        <option value="価格で並び替え">価格で並び替え</option>
-                        <option value="高い順に表示">高い順に表示</option>
-                        <option value="低い順に表示">低い順に表示</option>
+                <form action="{{ url('/') }}" method="get">
+                    <select name="select" onchange="this.form.submit()">
+                        <option value="">-- 並び替え --</option>
+                        <option value="高い順に表示" {{ request('select') == '高い順に表示' ? 'selected' : '' }}>高い順に表示</option>
+                        <option value="低い順に表示" {{ request('select') == '低い順に表示' ? 'selected' : '' }}>低い順に表示</option>
                     </select>
                 </form>
-
-                <div class="flex__item">
-                    <div class="practice__card">
-                        <div class="card__img">
-                            <img src="img/kiwi.jpg" alt="kiwi" />
-                        </div>
-                        <div class="card__content">
-                            <a class="card__content-ttl">
-                                キウイ　　¥800
-                            </a>
-                            <div class="card__content-tag">
-                                <p class="card__content-tag-item card__content-tag-item--last">
-
-                                </p>
+                <div class="product-list">
+                    @forelse ($products as $product)
+                    <div class="product-card">
+                        <a href="{{ route('product.detail', ['id' => $product->id]) }}" class="product-link">
+                            <img src="{{ asset('storage/img/fruits-img/' . $product->image) }}" alt="{{ $product->name }}" class="product-image">
+                            <div class="product-info">
+                                <h2 class="product-name">{{ $product->name }}</h2>
+                                <p class="product-price">¥{{ number_format($product->price) }}</p>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                    <div class="practice__card">
-                        <div class="card__img">
-                            <img src="img/strawberry.jpg" alt="strawberry" />
-                        </div>
-                        <div class="card__content">
-                            <a class="card__content-ttl">
-                                ストロベリー　　¥1200
-                            </a>
-                            <div class="card__content-tag">
-                                <p class="card__content-tag-item card__content-tag-item--last">
-
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="practice__card">
-                        <div class="card__img">
-                            <img src="img/orange.jpg" alt="orange" />
-                        </div>
-                        <div class="card__content">
-                            <a class="card__content-ttl">
-                                オレンジ　　¥850
-                            </a>
-                            <div class="card__content-tag">
-                                <p class="card__content-tag-item card__content-tag-item--last">
-
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    @empty
+                    <p>商品が見つかりませんでした</p>
+                    @endforelse
                 </div>
-                <div class="flex__item">
-                    <div class="practice__card">
-                        <div class="card__img">
-                            <img src="img/watermelon.jpg" alt="watermelon" />
-                        </div>
-                        <div class="card__content">
-                            <a class="card__content-ttl">
-                                スイカ　　¥700
-                            </a>
-                            <div class="card__content-tag">
-                                <p class="card__content-tag-item card__content-tag-item--last">
 
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="practice__card">
-                        <div class="card__img">
-                            <img src="img/peach.jpg" alt="peach" />
-                        </div>
-                        <div class="card__content">
-                            <a class="card__content-ttl">
-                                ピーチ　　¥1000
-                            </a>
-                            <div class="card__content-tag">
-                                <p class="card__content-tag-item card__content-tag-item--last">
+                <!-- ページネーション表示 -->
+                <div class="pagination">
+                    @if ($products->onFirstPage() == false)
+                    <a href="{{ $products->previousPageUrl() }}" class="page-number">«</a>
+                    @endif
 
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="practice__card">
-                        <div class="card__img">
-                            <img src="img/muscat.jpg" alt="muscat" />
-                        </div>
-                        <div class="card__content">
-                            <a class="card__content-ttl">
-                                シャインマスカット　　¥1400
-                            </a>
-                            <div class="card__content-tag">
-                                <p class="card__content-tag-item card__content-tag-item--last">
+                    @foreach ($products->getUrlRange(1, $products->lastPage()) as $page => $url)
+                    <a href="{{ $url }}" class="page-number {{ $page == $products->currentPage() ? 'active' : '' }}">
+                        {{ $page }}
+                    </a>
+                    @endforeach
 
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex__item">
-                    <div class="practice__card">
-                        <div class="card__img">
-                            <img src="img/pineapple.jpg" alt="pineapple" />
-                        </div>
-                        <div class="card__content">
-                            <a class="card__content-ttl">
-                                パイナップル　　¥800
-                            </a>
-                            <div class="card__content-tag">
-                                <p class="card__content-tag-item card__content-tag-item--last">
-
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="practice__card">
-                        <div class="card__img">
-                            <img src="img/grapes.jpg" alt="grapes" />
-                        </div>
-                        <div class="card__content">
-                            <a class="card__content-ttl">
-                                ブドウ　　¥1100
-                            </a>
-                            <div class="card__content-tag">
-                                <p class="card__content-tag-item card__content-tag-item--last">
-
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="practice__card">
-                        <div class="card__img">
-                            <img src="img/banana.jpg" alt="banana" />
-                        </div>
-                        <div class="card__content">
-                            <a class="card__content-ttl">
-                                バナナ　　¥600
-                            </a>
-                            <div class="card__content-tag">
-                                <p class="card__content-tag-item card__content-tag-item--last">
-
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex__item">
-                    <div class="practice__card">
-                        <div class="card__img">
-                            <img src="img/melon.jpg" alt="melon" />
-                        </div>
-                        <div class="card__content">
-                            <a class="card__content-ttl">
-                                メロン　　¥900
-                            </a>
-                            <div class="card__content-tag">
-                                <p class="card__content-tag-item card__content-tag-item--last">
-
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    @if ($products->hasMorePages())
+                    <a href="{{ $products->nextPageUrl() }}" class="page-number">»</a>
+                    @endif
                 </div>
             </div>
-
+        </header>
     </main>
-
 </body>
 
 </html>
